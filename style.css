@@ -1,0 +1,548 @@
+/* Reset */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Dispositivos muito pequenos (até 360px) */
+@media (max-width: 360px) {
+  h1 { font-size: 1.9rem; }
+  .countdown > div {
+    min-width: 45px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  .countdown span.number { font-size: 1.3rem; }
+  .invitation {
+    font-size: 0.8rem;
+    padding: 14px 10px;
+  }
+  .location, .map-link, .confirm-button {
+    font-size: 0.9rem;
+  }
+  .confirm-button {
+    padding: 8px 18px;
+  }
+}
+
+/* Celulares padrão (361px até 480px) */
+@media (max-width: 480px) {
+  h1 { font-size: 2.2rem; }
+  .countdown > div {
+    min-width: 50px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .countdown span.number { font-size: 1.5rem; }
+  .container {
+    padding: 20px 15px 25px;
+    margin: 0 10px;
+  }
+  .invitation {
+    font-size: 0.85rem;
+    padding: 16px 14px;
+  }
+  .location, .map-link, .confirm-button {
+    font-size: 0.95rem;
+  }
+  .confirm-button {
+    padding: 10px 20px;
+  }
+}
+
+/* Tablets (481px a 767px) */
+@media (max-width: 767px) {
+  .container {
+    max-width: 90%;
+    padding: 30px 25px;
+  }
+  .invitation {
+    font-size: 0.95rem;
+    padding: 24px;
+  }
+  .countdown span.number {
+    font-size: 2rem;
+  }
+}
+
+/* Tablets grandes e desktops pequenos (768px a 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 600px;
+    padding: 50px 40px;
+  }
+  .invitation {
+    font-size: 1.1rem;
+    padding: 32px;
+  }
+  .countdown span.number {
+    font-size: 2.5rem;
+  }
+  .confirm-button {
+    font-size: 1.2rem;
+    padding: 16px 35px;
+  }
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  color: #4a3f4a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+/* Nova camada para o fundo com blur */
+.background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #fce4ec, #f8bbd0);
+  background-size: cover;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.75); /* fundo preto com transparência */
+  border: 5px dashed #d96ca2;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* Safari */
+  max-width: 420px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(217, 108, 162, 0.3);
+  padding: 35px 30px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animação confetes */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #d96ca2;
+  opacity: 0.8;
+  top: -10px;
+  animation-name: confettiFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px #b35e89);
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Título */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.6rem;
+  color: #d96ca2;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+small.subtitle {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #b687a9;
+  margin-bottom: 30px;
+  display: block;
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+/* Contador */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.countdown > div {
+  background: #d96ca2;
+  color: white;
+  border-radius: 10px;
+  padding: 12px 20px;
+  min-width: 70px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(217,108,162,0.5);
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.countdown > div:hover {
+  background-color: #b35e89;
+}
+
+.countdown span.number {
+  font-size: 2.1rem;
+  display: block;
+  line-height: 1;
+}
+
+.countdown small.label {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Convite */
+.invitation {
+  border: 2px dashed white;
+  border-radius: 22px;
+  padding: 28px 25px;
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 35px;
+  box-shadow: 0 8px 24px rgba(217,108,162,0.15);
+  user-select: none;
+  position: relative;
+}
+
+.invitation h3 {
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #b35e89;
+  font-size: 1.3rem;
+  letter-spacing: 1.1px;
+  position: relative;
+}
+
+.invitation h3::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 2px;
+  background: #d96ca2;
+  margin: 10px auto 0 auto;
+  border-radius: 1.5px;
+}
+
+/* Local e horário */
+.location {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+.map-link {
+  color: #d96ca2;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.map-link:hover {
+  color: #b35e89;
+  text-decoration: underline;
+}
+
+/* Botão WhatsApp confirmação */
+.confirm-button {
+  display: inline-block;
+  background-color: #d96ca2;
+  color: white;
+  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgb(179 94 137);
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.confirm-button:hover {
+  background-color: #b687a9;
+}
+
+/* Footer */
+footer {
+  font-size: 0.85rem;
+  color: #b687a9;
+  font-style: italic;
+  user-select: none;
+  margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+  .countdown > div {
+    min-width: 55px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+  .countdown span.number {
+    font-size: 1.6rem;
+  }
+  .container {
+    padding: 25px 20px 30px;
+  }
+  .invitation {
+    font-size: 0.9rem;
+    padding: 20px 18px;
+  }
+  .location {
+    font-size: 1rem;
+  }
+  .confirm-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* ... seu CSS existente ... */
+
+/* Responsividade melhorada */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  .countdown > div {
+    min-width: 50px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .countdown span.number {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 20px 15px 25px;
+    margin: 0 10px;
+  }
+  .invitation {
+    font-size: 0.85rem;
+    padding: 16px 14px;
+  }
+  .location {
+    font-size: 0.95rem;
+  }
+  .map-link {
+    font-size: 0.95rem;
+  }
+  .confirm-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Para celulares muito pequenos, até 360px de largura */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .countdown > div {
+    min-width: 45px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  .countdown span.number {
+    font-size: 1.3rem;
+  }
+  .invitation {
+    font-size: 0.8rem;
+    padding: 14px 10px;
+  }
+  .location {
+    font-size: 0.9rem;
+  }
+  .map-link {
+    font-size: 0.9rem;
+  }
+  .confirm-button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+.invitation {
+  animation: conviteBounce 3s ease-in-out infinite;
+}
+
+@keyframes conviteBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+.subtitle,h1 {
+  /* Já tem seus estilos */
+  animation: conviteAnimacao 2.5s ease forwards;
+  opacity: 0;
+  transform-origin: center;
+}
+
+@keyframes conviteAnimacao {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotate(-2deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+
+#instruction {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #f48fb1, #ce93d8);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 6px 15px rgba(217, 108, 162, 0.6);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 9999;
+  max-width: 320px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+#instruction:hover {
+  background: linear-gradient(135deg, #ce93d8, #f48fb1);
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Melhor responsividade geral */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+    padding: 50px 40px;
+  }
+
+  .invitation {
+    font-size: 1.1rem;
+    padding: 32px;
+  }
+
+  .countdown span.number {
+    font-size: 2.5rem;
+  }
+
+  .confirm-button {
+    font-size: 1.2rem;
+    padding: 16px 35px;
+  }
+}
+
+/* Suavização de animações */
+.container, .invitation, .countdown > div, .confirm-button {
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.01);
+}
+
+@keyframes floatConfetti {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(180deg); }
+}
+
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #d96ca2;
+  opacity: 0.8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+
+.titulo1{
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+  font-size: 2rem;
+  color: white;
+  font-style: normal;
+}
+
+
+
+
+@keyframes floatLoop {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.location div,
+.location a {
+  animation: floatLoop 3.5s ease-in-out infinite;
+
+}
