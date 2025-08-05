@@ -1,6 +1,6 @@
 // Função contador regressivo
 function iniciarContador() {
-  const destino = new Date("2025-08-18T16:00:00").getTime();
+  const destino = new Date("2025-08-23T16:00:00").getTime();
 
   const intervalo = setInterval(() => {
     const agora = new Date().getTime();
@@ -56,4 +56,5 @@ window.addEventListener('click', () => {
     audio.play();
   }
 });
+
 
